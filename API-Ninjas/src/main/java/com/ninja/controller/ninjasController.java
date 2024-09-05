@@ -2,6 +2,7 @@ package com.ninja.controller;
 
 import com.ninja.model.ninjas;
 import com.ninja.service.ninjasService;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -14,6 +15,8 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 @RequestMapping("/api/ninjas") // PARA MAPEAR NOSSA API E DIRECIONAR OS NOSSOS CONTROLLER
 public class ninjasController {
+
+    @Autowired
     private ninjasService service;
 
     // Mapeamento ai oó
