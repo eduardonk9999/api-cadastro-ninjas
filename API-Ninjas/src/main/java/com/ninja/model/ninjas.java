@@ -5,6 +5,8 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+import java.util.UUID;
+
 
 // MODEL QUE É O QUE VAI SER SALVO NO BD
 @Entity
@@ -13,8 +15,10 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor // Mesmas coisa do de cima, mas para construtores
 @NoArgsConstructor
 public class ninjas {
+
     @Id
     @GeneratedValue(strategy = GenerationType.UUID)
+    UUID id;
     String nome;
     String aldeia;
     int idade;
