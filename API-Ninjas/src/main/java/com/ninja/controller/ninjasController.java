@@ -5,10 +5,9 @@ import com.ninja.service.ninjasService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
+
+import java.util.List;
 
 // Controller é para
 
@@ -19,6 +18,7 @@ public class ninjasController {
     @Autowired
     private ninjasService service;
 
+    // METODO POST
     // Mapeamento ai oó
     // /api/ninjas/addninja
     @PostMapping("/addninja")
@@ -27,4 +27,12 @@ public class ninjasController {
         return new ResponseEntity<>(newNinja, HttpStatus.CREATED);
 
     }
+
+    //METODO GET
+    @GetMapping("/all")
+    public ResponseEntity<List<ninjas>> getAllNinjas() {
+        List<ninjas> allNinjas = service.getAllNinjas();
+        return new ResponseEntity<>(allNinjas, HttpStatus.OK);
+    }
+
 }

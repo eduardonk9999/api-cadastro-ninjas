@@ -5,7 +5,7 @@ import com.ninja.repository.ninjasRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-
+import java.util.List;
 
 
 // Service onde vai ficar todo a logica, tanto de salvar no banco, quantou otras logicas.
@@ -23,7 +23,9 @@ public class ninjasService {
     }
 
     // Mostrar ninjas criados
-
+    public List<ninjas> getAllNinjas() {
+        return repository.findAll();
+    }
 
 
     // Mostrar ninja por ID
