@@ -35,4 +35,12 @@ public class ninjasController {
         return new ResponseEntity<>(allNinjas, HttpStatus.OK);
     }
 
+    //DELETE
+    /**/
+    @DeleteMapping("/delete/{id}")
+    public void deleteNinja(@PathVariable Long id) {
+        service.deleteNinja(id);
+    }
+
+
 }

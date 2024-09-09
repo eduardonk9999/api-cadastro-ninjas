@@ -32,6 +32,9 @@ public class ninjasService {
 
 
     // Deletar ninja
+    public void deleteNinja(Long id) {
+        repository.deleteById(id);
+    }
 
 
     // Atualizar ninja
