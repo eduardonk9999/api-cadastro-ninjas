@@ -42,5 +42,9 @@ public class ninjasController {
         service.deleteNinja(id);
     }
 
+    // Procurar por ID
+    public ninjas findNinjaById(Long id) {
+
+    }
 
 }
