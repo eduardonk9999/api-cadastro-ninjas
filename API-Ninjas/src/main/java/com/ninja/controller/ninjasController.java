@@ -1,6 +1,7 @@
 package com.ninja.controller;
 
 import com.ninja.model.ninjas;
+import com.ninja.repository.ninjasRepository;
 import com.ninja.service.ninjasService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -8,6 +9,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
+import java.util.Optional;
 
 // Controller é para
 
@@ -43,8 +45,21 @@ public class ninjasController {
     }
 
     // Procurar por ID
-    public ninjas findNinjaById(Long id) {
+    @GetMapping("/{id}")
+    public ResponseEntity<?> findNinjaById(@PathVariable Long id) {
+        Optional<ninjas> optionalNinjas = service.findNinjaById(id);
 
+        if(optionalNinjas.isPresent()) {
+            return ResponseEntity.ok(optionalNinjas.get());
+        } else {
+            return ResponseEntity.status(HttpStatus.NOT_FOUND)
+                    .body("Desculpe, ninja não encontrado. Passe um id valido");
+        }
     }
+
+    // Atualizar Ninjas
+
+
+
 
 }
